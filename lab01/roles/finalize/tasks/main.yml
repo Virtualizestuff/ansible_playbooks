@@ -1,0 +1,19 @@
+---  
+- name: Create local hostnames for Cumulus fabric
+  blockinfile: 
+    path: /etc/hosts
+    block: |
+      auto swp1
+      iface swp1
+      
+      auto swp2
+      iface swp2
+     
+      auto swp3
+      iface swp3
+
+- name: reload networking
+  command: ifreload -a
+
+- name: reload frr
+  service: name=frr state=restarted

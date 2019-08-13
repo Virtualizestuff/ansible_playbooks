@@ -1,0 +1,9 @@
+---
+- hosts: network
+  gather_facts: False
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - routing
+    - standard

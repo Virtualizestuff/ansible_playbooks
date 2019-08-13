@@ -1,0 +1,7 @@
+---  
+- name: copy interface configs
+  copy: src=roles/routing/templates/{{ inventory_hostname }}/interfaces dest=/etc/network/
+- name: copy frr daemon configs
+  copy: src=sroles/routing/templates/{{ inventory_hostname }}/daemons dest=/etc/frr/
+- name: copy frr configs
+  copy: src=roles/routing/templates/{{ inventory_hostname }}/frr.conf dest=/etc/frr/
