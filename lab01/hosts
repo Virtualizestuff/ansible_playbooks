@@ -10,6 +10,3 @@ spine-02
 [network:children]
 leaf
 spine
-
-[test]
-leaf-01

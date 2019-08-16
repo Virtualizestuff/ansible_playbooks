@@ -5,21 +5,11 @@
     - add hostname {{ inventory_hostname }}
     atomic: true
    
-- debug:
-    msg: "{{ ansible_sudo_pass }}"
-
-- debug:
-    msg: "{{ my_password }}"
-
 - name: Copy SSH Key to Hosts
   authorized_key:
     user: cumulus
     state: present
-    key: "{{ lookup('file', '/home/dave/.ssh/id_rsa.pub') }}"   
-
-- name: debug - hashed password
-  debug: 
-    msg: "{{ my_password | password_hash('sha512') }}"
+    key: "{{ lookup('file', '{{ ansible_node.sshkey }}') }}"   
 
 - name: Change Default Password
   user:

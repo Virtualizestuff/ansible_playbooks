@@ -1,15 +1,16 @@
 ---  
 - name: copy interface configs
   copy: src={{ inventory_hostname }}/interfaces dest=/etc/network/
-  notify:
-    - reload networking
 
 - name: copy frr daemon configs
   copy: src={{ inventory_hostname }}/daemons dest=/etc/frr/
-  notify:
-    - reload frr
 
 - name: copy frr configs
   copy: src={{ inventory_hostname }}/frr.conf dest=/etc/frr/
-  notify: 
-    - reload frr
+
+# Put the reload tasks here in order to groups them as a single task rather then individual tasks per switch  
+- name: reload networking
+  shell: ifreload -a
+
+- name: reload frr
+  service: name=frr state=reloaded

@@ -5,8 +5,6 @@
   gather_facts: False
   become: 'True'
   become_method: sudo
-  #vars_files:
-  #  - group_vars/my_secret.yml
   roles:
     - routing
 
@@ -15,7 +13,6 @@
   gather_facts: False
   become: yes
   vars_files:
-    - group_vars/my_secret.yml
-    - roles/common/vars/var.yml
+    - group_vars/vault/cumulus_password.yml
   roles:
     - common
