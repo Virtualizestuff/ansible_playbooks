@@ -1,8 +1,8 @@
 # Ansible lab01 Deploying Cumulus Linux Network Fabric
 
 # Table of contents
-2. [Topology description](#topology_description)
-3. [Ansible configuration](#ansible_configuration)
+1. [Topology description](#topology_description)
+2. [Ansible configuration](#ansible_configuration)
 
 
 Topology description  <a name="topology_description"></a>
