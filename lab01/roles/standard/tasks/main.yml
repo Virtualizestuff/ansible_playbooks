@@ -1,5 +1,0 @@
----  
-- name: Change Default Password
-  user:
-    name: cumulus
-    password: "{{ switch_password }}"

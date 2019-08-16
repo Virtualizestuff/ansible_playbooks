@@ -1,9 +1,21 @@
 ---
-- hosts: network
+- name: Routing Configuration
+  hosts: network
+  strategy: free
   gather_facts: False
-  become: yes
-  become_user: root
+  become: 'True'
   become_method: sudo
+  #vars_files:
+  #  - group_vars/my_secret.yml
   roles:
     - routing
-    - standard
+
+- name: Standard Configuration 
+  hosts: all
+  gather_facts: False
+  become: yes
+  vars_files:
+    - group_vars/my_secret.yml
+    - roles/common/vars/var.yml
+  roles:
+    - common

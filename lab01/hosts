@@ -1,12 +1,15 @@
 [leaf]
-leaf01
-leaf02
-leaf03
+leaf-01
+leaf-02
+leaf-03
 
 [spine]
-spine01
-spine02
+spine-01
+spine-02
 
 [network:children]
 leaf
 spine
+
+[test]
+leaf-01

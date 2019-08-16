@@ -1,2 +1,1 @@
 ---
-switch_password: "{{ 'VMware1!' | password_hash('sha512') }}"

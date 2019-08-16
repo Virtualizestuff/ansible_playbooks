@@ -1,19 +1,15 @@
 ---  
-- name: Set hostname
-  nclu:
-    commands:
-    - add hostname {{ inventory_hostname }}
-    atomic: true
-
 - name: copy interface configs
-  copy: src=roles/routing/templates/{{ inventory_hostname }}/interfaces dest=/etc/network/
+  copy: src={{ inventory_hostname }}/interfaces dest=/etc/network/
+  notify:
+    - reload networking
+
 - name: copy frr daemon configs
-  copy: src=roles/routing/templates/{{ inventory_hostname }}/daemons dest=/etc/frr/
+  copy: src={{ inventory_hostname }}/daemons dest=/etc/frr/
+  notify:
+    - reload frr
+
 - name: copy frr configs
-  copy: src=roles/routing/templates/{{ inventory_hostname }}/frr.conf dest=/etc/frr/
-
-- name: reload networking
-  command: ifreload -a
-
-- name: reload frr
-  service: name=frr state=restarted
+  copy: src={{ inventory_hostname }}/frr.conf dest=/etc/frr/
+  notify: 
+    - reload frr
