@@ -17,7 +17,7 @@ This lab was built using Eve-NG and Cumulus Linux qcow2 images:
 | leaf-02       | DHCP         | Cumulus VX - 3.7.7 |
 | leaf-03       | DHCP         | Cumulus VX - 3.7.7 |
 
-DHCP reservation was used for the switch mangement interfaces feel free to use static IP address if DHCP isn't an options. Also make sure you can resolve hostnames or use IP addresses in the hosts inventory file.  
+DHCP reservation was used for the switch mangement interfaces but feel free to use static IP addresses if DHCP isn't an option. Also, make sure you can resolve hostnames or simply use IP addresses in the Ansible hosts inventory file.  
 
 <img src='docs/topology.png' width=500>
 
