@@ -1,0 +1,8 @@
+---
+# Ansible node SSH key location using a dictionary to keep variables organized
+ansible_node:
+  sshkey: ~/.ssh/id_rsa.pub
+
+# Sudo password for the switches
+ansible_sudo_pass: CumulusLinux!
+

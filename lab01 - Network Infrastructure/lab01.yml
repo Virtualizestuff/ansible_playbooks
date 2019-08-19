@@ -1,0 +1,18 @@
+---
+- name: Routing Configuration
+  hosts: network
+  strategy: free
+  gather_facts: False
+  become: 'True'
+  become_method: sudo
+  roles:
+    - routing
+
+- name: Standard Configuration 
+  hosts: all
+  gather_facts: False
+  become: yes
+  vars_files:
+    - group_vars/vault/cumulus_password.yml
+  roles:
+    - common
