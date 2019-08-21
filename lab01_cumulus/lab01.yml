@@ -1,0 +1,11 @@
+---
+- name: Underlay Network Configuration
+  hosts: network
+  gather_facts: False
+  become: yes
+  become_method: sudo
+  vars_files:
+    - group_vars/vault/cumulus_password.yml
+  roles:
+    - routing
+    - common
