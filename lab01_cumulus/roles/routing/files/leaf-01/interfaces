@@ -5,7 +5,6 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
-#    vrf mgmt
 
 # uplinks
 auto swp1
@@ -28,8 +27,3 @@ auto swp4
 iface swp4
     address 172.18.0.38/30
     alias link_to_nsxen2
-
-#auto mgmt
-#iface mgmt
-#    address 127.0.0.1/8
-#    vrf-table auto

@@ -5,7 +5,6 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
-#    vrf mgmt
 
 # downlinks
 auto swp1
@@ -25,8 +24,3 @@ iface swp3
 
 auto swp4
 iface swp4
-
-#auto mgmt
-#iface mgmt
-#    address 127.0.0.1/8
-#    vrf-table auto
