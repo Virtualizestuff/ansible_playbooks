@@ -1,4 +1,4 @@
-# Ansible lab01 Deploying Cumulus Linux Underlay Network
+# Ansible lab03 Cumulus Multi-Site Network
 
 # Table of contents
 1. [Topology description](#topology_description)
