@@ -1,0 +1,7 @@
+"Host","Datastore","Disk Name","Is PR'd?"
+"esxi-01.homelab.virtualizestuff.com","TESTLUN","naa.60014055c6050bad970cd4cc5d87c2d5","false"
+"esxi-02.homelab.virtualizestuff.com","TESTLUN","naa.60014055c6050bad970cd4cc5d87c2d5","false"
+"esxi-03.homelab.virtualizestuff.com","TESTLUN","naa.60014055c6050bad970cd4cc5d87c2d5","false"
+"esxi-04.homelab.virtualizestuff.com","InfraVMs","naa.6a4badb016d8460023c2d3ad3cb8f8bc","false"
+"esxi-04.homelab.virtualizestuff.com","NestedVMs","naa.6a4badb016d8460023c2d25c28a151fd","false"
+"esxi-04.homelab.virtualizestuff.com","TESTLUN","naa.60014055c6050bad970cd4cc5d87c2d5","false"

@@ -1,0 +1,15 @@
+[leaf]
+leaf-1a
+leaf-2a
+leaf-3a
+leaf-1b
+leaf-2b
+leaf-3b
+
+[spine]
+spine-1a
+spine-1b
+
+[network:children]
+leaf
+spine

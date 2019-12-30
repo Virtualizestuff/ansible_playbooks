@@ -1,0 +1,27 @@
+
+auto lo
+iface lo inet loopback
+    address 10.0.0.23/32
+
+auto eth0
+iface eth0 inet dhcp
+
+# uplinks
+auto swp1
+iface swp1
+    address 172.18.210.10/30
+    alias link_to_spine-1b-swp3
+
+auto swp2
+iface swp2
+    address 172.18.109.2/30
+    alias link_to_leaf-3a-swp2
+
+# downlinks
+auto swp3
+iface swp3
+    address 172.18.210.26/30
+    alias link_to_externalnetwork
+
+auto swp4
+iface swp4

@@ -1,0 +1,19 @@
+---  
+- name: copy interface configs
+  copy: src={{ inventory_hostname }}/interfaces dest=/etc/network/
+
+- name: copy mtu config
+  copy: src={{ inventory_hostname }}/interfaces dest=/etc/network/ifupdown2/policy.d/
+
+- name: copy frr daemon configs
+  copy: src={{ inventory_hostname }}/daemons dest=/etc/frr/
+
+- name: copy frr configs
+  copy: src={{ inventory_hostname }}/frr.conf dest=/etc/frr/
+
+# Put the reload tasks here in order to groups them as a single task rather then individual tasks per switch  
+- name: reload networking
+  shell: ifreload -a
+
+- name: reload frr
+  service: name=frr state=reloaded

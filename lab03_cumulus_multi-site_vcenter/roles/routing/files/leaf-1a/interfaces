@@ -1,0 +1,105 @@
+
+auto lo
+iface lo inet loopback
+    address 10.0.0.11/32
+
+auto eth0
+iface eth0 inet dhcp
+
+# uplinks
+auto swp1
+iface swp1
+    address 172.18.110.2/30
+    alias link_to_spine-1a-swp1
+
+auto swp2
+iface swp2
+    alias Site-A Trunk to ESXi hosts containing VLANs 120-131
+
+auto swp3
+iface swp3
+    alias Site-A access port for VMs [vCenter,PSC,FreeNAS,UnityVSA] outside the nested environment, network 172.18.118.0/23
+    bridge-access 118
+
+auto bridge
+iface bridge
+    bridge-ports swp2 swp3
+    bridge-vids 118 120-131
+    bridge-vlan-aware yes
+
+auto vlan118
+iface vlan118
+    address 172.18.118.1/23
+    alias Site-A Mgmt network 172.18.118.0/23
+    vlan-id 118
+    vlan-raw-device bridge
+
+auto vlan120
+iface vlan120
+    address 172.18.120.1/24
+    alias Site-A vMotion network 172.18.120.0/24
+    vlan-id 120
+    vlan-raw-device bridge
+
+auto vlan121
+iface vlan121
+    address 172.18.121.1/24
+    alias Site-A NFS network 172.18.121.0/24
+    vlan-id 121
+    vlan-raw-device bridge
+
+auto vlan122
+iface vlan122
+    address 172.18.122.1/24
+    alias Site-A NSX-V vTEP network 172.18.122.0/24 [DHCP]
+    vlan-id 122
+    vlan-raw-device bridge
+
+auto vlan123
+iface vlan123
+    address 172.18.123.1/24
+    alias Site-A NSX-T vTEP network 172.18.123.0/24 [DHCP]
+    vlan-id 123
+    vlan-raw-device bridge
+
+auto vlan124
+iface vlan124
+    address 172.18.124.1/24
+    alias Site-A Replication network 172.18.124.0/24
+    vlan-id 124
+    vlan-raw-device bridge
+
+auto vlan125
+iface vlan125
+    address 172.18.125.1/24
+    alias Site-A Uplink01 network 172.18.125.0/24
+    vlan-id 125
+    vlan-raw-device bridge
+
+auto vlan126
+iface vlan126
+    address 172.18.126.1/24
+    alias Site-A Uplink02 network 172.18.126.0/24
+    vlan-id 126
+    vlan-raw-device bridge
+
+auto vlan127
+iface vlan127
+    address 172.18.127.1/24
+    alias Site-A vSAN network 172.18.127.0/24
+    vlan-id 127
+    vlan-raw-device bridge
+
+auto vlan130
+iface vlan130
+    address 172.18.130.1/24
+    alias Site-A DEV network 172.18.130.0/24
+    vlan-id 130
+    vlan-raw-device bridge
+
+auto vlan131
+iface vlan131
+    address 172.18.131.1/24
+    alias Site-A PROD network 172.18.131.0/24
+    vlan-id 131
+    vlan-raw-device bridge

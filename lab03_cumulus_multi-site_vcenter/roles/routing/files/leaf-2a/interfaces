@@ -1,0 +1,16 @@
+
+auto lo
+iface lo inet loopback
+    address 10.0.0.12/32
+
+auto eth0
+iface eth0 inet dhcp
+
+# uplinks
+auto swp1
+iface swp1
+    address 172.18.110.6/30
+    alias link_to_spine-1a-swp1
+
+auto swp2
+iface swp2
